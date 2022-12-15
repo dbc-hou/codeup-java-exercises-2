@@ -2,23 +2,19 @@ import java.util.Scanner;
 
 public class Bob {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Talk to Bob:");
-        String stringInput = sc.nextLine();
-        do {
-            if (stringInput.equalsIgnoreCase("exit")) {
-                return;
-            }
-            System.out.print("Talk to Bob: ");
-            if (stringInput.endsWith("?")) {
-                System.out.println("Sure.");
-            } else if (stringInput.endsWith("!")) {
-                System.out.println("Whoa, chill out!");
-            } else if (stringInput.equals("")) {
-                System.out.println("Fine. Be that way!");
-            } else {
-                System.out.println("Whatever.");
-            }
-        } while (!(stringInput.equalsIgnoreCase("exit")));
+
+        System.out.println("YOU talk to Bob. I can't tell that kid anything");
+        Scanner bobScan = new Scanner(System.in);
+        String talkToBob = bobScan.nextLine().trim(); //in case user hits space after the ? or !
+        if (talkToBob.endsWith("?")) {
+            System.out.println("Sure.");
+        } else if (talkToBob.endsWith("!")) {
+            System.out.println("Whoa, chill out!");
+        } else if (talkToBob.length() == 0) {
+            System.out.println("Fine, be that way!");
+        } else {
+            System.out.println("Whatever.");
+        }
+
     }
 }
