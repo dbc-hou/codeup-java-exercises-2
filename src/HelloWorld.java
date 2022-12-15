@@ -25,6 +25,7 @@ public class HelloWorld {
 
         System.out.print("Enter an integer: ");
         int isItPrime = sc.nextInt();
+        int firstFactor = factor(isItPrime);
         if (isItPrime < 0) {
             isItPrime = Math.abs(isItPrime);
             System.out.println("Smart-ass! Converting that to a positive integer because this operation involves square roots.");
@@ -32,7 +33,7 @@ public class HelloWorld {
         if (isPrime(isItPrime)) {
             System.out.println(isItPrime + " is a prime number.");
         } else {
-            System.out.println(isItPrime + " is not a prime number.");
+            System.out.println(isItPrime + " is not a prime number. It is divisible by " + firstFactor + ".");
         }
     }
 
@@ -61,5 +62,15 @@ public class HelloWorld {
         }
 
         return true;
+    }
+
+    public static int factor(int multiple) {
+        int squareRoot = (int) Math.sqrt(multiple);
+        for (int j = 3; j <= squareRoot; j+=2) {
+            if (multiple % j == 0) {
+                return j;
+            }
+        }
+        return 0;
     }
 }
